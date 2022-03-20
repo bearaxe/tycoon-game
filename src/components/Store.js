@@ -1,9 +1,9 @@
 import { mapState } from 'vuex';
-import KProgress from 'k-progress';
+import StoreUI from './StoreUI.vue';
 
 export default {
   components: {
-    KProgress,
+    StoreUI,
   },
 
   data() {

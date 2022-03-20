@@ -3,13 +3,8 @@
     <HUD />
     <div class="stores">
       <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
-      <LemonadeStand />
+      <PetShop />
+      <SuperMarket />
     </div>
   </div>
 </template>
@@ -17,12 +12,16 @@
 <script>
 import HUD from './components/HUD.vue'
 import LemonadeStand from './components/LemonadeStand.vue'
+import PetShop from './components/PetShop.vue'
+import SuperMarket from './components/SuperMarket.vue'
 
 export default {
   name: 'App',
   components: {
     HUD,
-    LemonadeStand
+    LemonadeStand,
+    PetShop,
+    SuperMarket,
   }
 }
 </script>
