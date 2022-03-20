@@ -1,18 +1,28 @@
 import { mapState } from 'vuex';
+import KProgress from 'k-progress';
 
 export default {
+  components: {
+    KProgress,
+  },
+
   data() {
     return {
       price: 1,
       owned: 0,
       collectInterval: '',
       collectSeconds: 1,
+      collectProgress: 0,
+      progressMs: 20,
       revenuePerStore: .5,
     }
   },
 
   computed: {
     ...mapState(['bank']),
+    collectPercentage() {
+      return (this.collectProgress / (this.collectSeconds * 1000)) * 100
+    }
   },
 
   beforeDestroy() {
@@ -36,10 +46,16 @@ export default {
         return;
       }
       console.log(`trying to collect a ${this.$options.type}`)
-      this.collectInterval = setTimeout(() => {
-        console.log(`collecting a ${this.$options.type}`)
-        this.$store.dispatch('bank/collect', { total: this.revenuePerStore * this.owned })
-      }, this.collectSeconds * 1000);
+
+      this.collectInterval = setInterval(() => {
+        this.collectProgress += this.progressMs;
+        if(this.collectProgress >= this.collectSeconds * 1000) {
+          console.log(`collecting a ${this.$options.type}`)
+          this.$store.dispatch('bank/collect', { total: this.revenuePerStore * this.owned })
+          this.collectProgress = 0;
+          clearInterval(this.collectInterval);
+        }
+      }, this.progressMs);
     }
   }
 }

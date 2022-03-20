@@ -1,4 +1,5 @@
 # tycoon-game
+based on https://www.udemy.com/course/build-a-tycoon-business-sim-in-unity3d-c-game-development/learn/lecture/4601882#overview
 
 ## Project setup
 ```
