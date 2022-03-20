@@ -10,7 +10,7 @@ export default {
     return {
       price: 1,
       owned: 0,
-      collectInterval: '',
+      collectInterval: 'unset',
       collectSeconds: 1,
       collectProgress: 0,
       progressMs: 20,
@@ -41,6 +41,10 @@ export default {
       }
     },
     collect() {
+      if(this.collectInterval != 'unset') {
+        console.log(`you're already trying to collect revenue for your ${this.$options.type}s!`);
+        return;
+      }
       if(this.owned == 0) {
         console.log(`you don't own any ${this.$options.type}s yet!`);
         return;
@@ -54,6 +58,7 @@ export default {
           this.$store.dispatch('bank/collect', { total: this.revenuePerStore * this.owned })
           this.collectProgress = 0;
           clearInterval(this.collectInterval);
+          this.collectInterval = 'unset';
         }
       }, this.progressMs);
     }
