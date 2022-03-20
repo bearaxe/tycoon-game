@@ -4,15 +4,18 @@
       Lemonade Stand
     </div>
     <div class="ui">
+      <p class="owned">Owned: {{ owned }}</p>
+      <KProgress
+        class="progress"
+        :percent="collectPercentage"
+        :show-text="false"
+      />
       <div class="collection">
         <button @click="collect">Collect</button>
-        {{ owned }}
-        <KProgress
-          :percent="collectPercentage"
-          :show-text="false"
-        />
       </div>
-      <button @click="buy">Buy</button>
+      <div class="buy">
+        <button @click="buy">Buy</button>
+      </div>
     </div>
   </div>
 </template>

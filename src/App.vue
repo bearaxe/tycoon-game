@@ -3,6 +3,13 @@
     <HUD />
     <div class="stores">
       <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
+      <LemonadeStand />
     </div>
   </div>
 </template>
@@ -29,4 +36,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+ @import '@/assets/store.scss';
 </style>

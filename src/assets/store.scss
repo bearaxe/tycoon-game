@@ -1,0 +1,48 @@
+.stores {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.store {
+  border: 1px solid black;
+  border-radius: .5rem;
+  padding: .5rem;
+  max-width: 20rem;
+  margin: 20px;
+}
+
+.ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "owned owned owned owned"
+    "progress progress progress progress"
+    "collection collection buy buy";
+
+  .owned {
+    grid-area: owned;
+  }
+
+  .progress {
+    grid-area: progress;
+
+    .k-progress-outer {
+      padding-right: 0;
+    }
+  }
+
+  .collection {
+    grid-area: collection;
+  }
+
+  .buy {
+    grid-area: buy;
+  }
+}
