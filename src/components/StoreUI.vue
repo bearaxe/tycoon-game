@@ -1,16 +1,18 @@
 <template>
   <div class="ui">
-    <p class="owned">Owned: {{ owned }}</p>
+    <p class="owned">Owned: {{ this.$parent.owned }}</p>
+    <p class="price">Price: {{ price }}</p>
+    <p class="return">Return: {{ revenue }}</p>
     <KProgress
       class="progress"
-      :percent="collectPercentage"
+      :percent="this.$parent.collectPercentage"
       :show-text="false"
     />
     <div class="collection">
-      <button @click="collect">Collect</button>
+      <button @click="this.$parent.collect">Collect</button>
     </div>
     <div class="buy">
-      <button @click="buy">Buy</button>
+      <button @click="this.$parent.buy">Buy</button>
     </div>
   </div>
 </template>
@@ -23,22 +25,13 @@ export default {
     KProgress,
   },
 
-  props: {
-    buy: {
-      type: Function,
-      required: true,
+  computed: {
+    revenue() {
+      // a trick so it shows either total revenue of all stores or projected revenue of 1 store
+      return this.$formatter.format(this.$parent.revenuePerStore * (this.$parent.owned || 1));
     },
-    collect: {
-      type: Function,
-      required: true,
-    },
-    collectPercentage: {
-      type: Number,
-      required: true,
-    },
-    owned: {
-      type: Number,
-      required: true
+    price() {
+      return this.$formatter.format(this.$parent.price);
     }
   }
 }

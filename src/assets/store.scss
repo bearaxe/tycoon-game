@@ -13,21 +13,30 @@
 }
 
 .ui {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
     "owned owned owned owned"
+    "price price price price"
+    "return return return return"
     "progress progress progress progress"
     "collection collection buy buy";
 
+  p {
+    margin: .25rem auto;
+  }
+
   .owned {
     grid-area: owned;
+  }
+
+  .price {
+    grid-area: price;
+  }
+
+  .return {
+    grid-area: return;
   }
 
   .progress {
