@@ -5,15 +5,19 @@
       <LemonadeStand />
       <PetShop />
       <SuperMarket />
+      <Theater />
+      <Mall />
     </div>
   </div>
 </template>
 
 <script>
 import HUD from './components/HUD.vue'
-import LemonadeStand from './components/LemonadeStand.vue'
-import PetShop from './components/PetShop.vue'
-import SuperMarket from './components/SuperMarket.vue'
+import LemonadeStand from './components/stores/LemonadeStand.vue'
+import PetShop from './components/stores/PetShop.vue'
+import SuperMarket from './components/stores/SuperMarket.vue'
+import Theater from './components/stores/Theater.vue'
+import Mall from './components/stores/Mall.vue'
 
 export default {
   name: 'App',
@@ -22,6 +26,8 @@ export default {
     LemonadeStand,
     PetShop,
     SuperMarket,
+    Theater,
+    Mall,
   }
 }
 </script>

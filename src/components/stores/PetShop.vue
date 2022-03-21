@@ -1,7 +1,7 @@
 <template>
   <div class="store">
     <div class="title">
-      Super Market
+      Pet Shop
     </div>
     <StoreUI
       :buy="buy"
@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import Store from './Store';
+import Store from '../Store';
 export default {
-  type: 'super-market',
+  type: 'pet-shop',
   extends: Store,
   data() {
     return {
-      price: 25,
-      collectSeconds: 25,
-      revenuePerStore: 10,
+      price: 6,
+      collectSeconds: 8,
+      revenuePerStore: 1,
     }
   }
 }
