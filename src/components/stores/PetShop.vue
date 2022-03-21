@@ -3,12 +3,7 @@
     <div class="title">
       Pet Shop
     </div>
-    <StoreUI
-      :buy="buy"
-      :collect="collect"
-      :collectPercentage="collectPercentage"
-      :owned="owned"
-    />
+    <StoreUI />
   </div>
 </template>
 
